@@ -27,12 +27,3 @@ npm run dev
 ```sh
 npm run build
 ```
-
-### 居中一个元素
-https://developer.mozilla.org/zh-CN/docs/Web/CSS/Layout_cookbook/Center_an_element
-
-### 长度单位
-px  像素
-vw  视口宽度的 1%
-vh  视口高度的 1%
-
