@@ -1,5 +1,6 @@
 <script setup>
 import Aside from './Aside.vue'
+import Header from './Header.vue'
 
 </script>
 
@@ -9,8 +10,12 @@ import Aside from './Aside.vue'
             <Aside></Aside>
         </el-aside>
         <el-container>
-            <el-header>Header</el-header>
-            <el-main>Main</el-main>
+            <el-header>
+                <Header></Header>
+            </el-header>
+            <el-main>
+                <router-view></router-view>
+            </el-main>
         </el-container>
     </el-container>
 </template>
