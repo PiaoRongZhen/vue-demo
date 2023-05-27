@@ -14,9 +14,6 @@ import Tab from './Tab.vue'
             <el-header>
                 <Header></Header>
             </el-header>
-            <el-header>
-                <Tab></Tab>
-            </el-header>
             <el-main>
                 <router-view></router-view>
             </el-main>
@@ -28,5 +25,9 @@ import Tab from './Tab.vue'
 .home-container {
     height: 100vh;
     width: 100vw;
+}
+
+.el-main {
+    padding: 10px;
 }
 </style>
