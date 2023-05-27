@@ -1,6 +1,7 @@
 <script setup>
 import Aside from './Aside.vue'
 import Header from './Header.vue'
+import Tab from './Tab.vue'
 
 </script>
 
@@ -12,6 +13,9 @@ import Header from './Header.vue'
         <el-container>
             <el-header>
                 <Header></Header>
+            </el-header>
+            <el-header>
+                <Tab></Tab>
             </el-header>
             <el-main>
                 <router-view></router-view>

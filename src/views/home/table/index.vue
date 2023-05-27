@@ -4,8 +4,17 @@
 
 <template>
     <el-container>
-        table
+        Table
     </el-container>
 </template>
 
-<style scoped></style>
+<style scoped>
+.el-container {
+    height: 100%;
+    width: 100%;
+
+    display: flex;
+    align-items: center;
+    justify-content: center;
+}
+</style>
