@@ -1,7 +1,6 @@
 <script setup>
 import Aside from './Aside.vue'
 import Header from './Header.vue'
-import Tab from './Tab.vue'
 
 </script>
 

@@ -16,7 +16,7 @@ export const router = createRouter({
             component: Home,
             children: [
                 {
-                    path: 'table',
+                    path: 'admin/table',
                     component: Table,
                 }
             ]

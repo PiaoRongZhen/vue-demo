@@ -1,4 +1,29 @@
 <script setup>
+import { useRouter, useRoute } from 'vue-router'
+import { watch } from 'vue'
+import { ref } from 'vue'
+
+const router = useRouter()
+
+const handleSelect = (key) => {
+    router.push('/' + key)
+}
+
+const route = useRoute()
+const activeIndex = ref('home')
+
+if (route.path.includes('home')) {
+    activeIndex.value = route.path.substring(1)
+}
+
+watch(
+    () => route.path,
+    newPath => {
+        if (newPath.includes('home')) {
+            activeIndex.value = newPath.substring(1)
+        }
+    }
+)
 
 </script>
 
@@ -8,42 +33,16 @@
             <el-text type="success">vue-demo</el-text>
         </el-header>
         <el-main>
-            <el-menu active-text-color="#ffd04b" background-color="#545c64" text-color="#ffffff">
-                <el-sub-menu index="1">
+            <el-menu active-text-color="#ffd04b" background-color="#545c64" text-color="#ffffff" @select="handleSelect"
+                :default-active="activeIndex">
+                <el-menu-item index="home">
+                    <span>home</span>
+                </el-menu-item>
+                <el-sub-menu index="home/admin">
                     <template #title>
-                        <span>Navigator One</span>
+                        <span>admin</span>
                     </template>
-                    <el-menu-item-group title="Group One">
-                        <el-menu-item index="1-1">item one</el-menu-item>
-                        <el-menu-item index="1-2">item two</el-menu-item>
-                    </el-menu-item-group>
-                    <el-menu-item-group title="Group Two">
-                        <el-menu-item index="1-3">item three</el-menu-item>
-                    </el-menu-item-group>
-                </el-sub-menu>
-                <el-sub-menu index="2">
-                    <template #title>
-                        <span>Navigator Two</span>
-                    </template>
-                    <el-menu-item-group title="Group One">
-                        <el-menu-item index="2-1">item one</el-menu-item>
-                        <el-menu-item index="2-2">item two</el-menu-item>
-                    </el-menu-item-group>
-                    <el-menu-item-group title="Group Two">
-                        <el-menu-item index="2-3">item three</el-menu-item>
-                    </el-menu-item-group>
-                </el-sub-menu>
-                <el-sub-menu index="3">
-                    <template #title>
-                        <span>Navigator Three</span>
-                    </template>
-                    <el-menu-item-group title="Group One">
-                        <el-menu-item index="3-1">item one</el-menu-item>
-                        <el-menu-item index="3-2">item two</el-menu-item>
-                    </el-menu-item-group>
-                    <el-menu-item-group title="Group Two">
-                        <el-menu-item index="3-3">item three</el-menu-item>
-                    </el-menu-item-group>
+                    <el-menu-item index="home/admin/table">table</el-menu-item>
                 </el-sub-menu>
             </el-menu>
         </el-main>

@@ -1,5 +1,27 @@
 <script setup>
 
+import { useRoute } from 'vue-router'
+import { watch } from 'vue'
+import { ref } from 'vue'
+
+
+const breadcrumbItems = ref([])
+
+const route = useRoute()
+
+if (route.path.includes('home')) {
+    breadcrumbItems.value = route.path.substring(1).split('/')
+}
+
+watch(
+    () => route.path,
+    newPath => {
+        if (newPath.includes('home')) {
+            breadcrumbItems.value = newPath.substring(1).split('/')
+        }
+    }
+)
+
 </script>
 
 <template>
@@ -8,7 +30,9 @@
             <el-col :span="12" class="left">
                 <div>
                     <el-breadcrumb separator="/">
-                        <el-breadcrumb-item>首页</el-breadcrumb-item>
+                        <el-breadcrumb-item v-for="breadcrumbItem in breadcrumbItems">
+                            {{ breadcrumbItem }}
+                        </el-breadcrumb-item>
                     </el-breadcrumb>
                 </div>
             </el-col>
